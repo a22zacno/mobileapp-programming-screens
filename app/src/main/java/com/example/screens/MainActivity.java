@@ -14,7 +14,13 @@ public class MainActivity extends AppCompatActivity {
     public void startSecond(View view) {
         //Starts the second activity
         Intent i = new Intent(MainActivity.this, SecondActivity.class);
+        i.putExtra("data", "The Second Activity has been activated"); //adds a piece of data with the activity
         startActivity(i);
+
+        Bundle extras = getIntent().getExtras();
+        if (extras != null) {
+            String data = extras.getString("data");
+        }
     }
 
     @Override
