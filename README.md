@@ -1,9 +1,11 @@
 
 # Rapport
 
-**Skriv din rapport här!**
-
-_Du kan ta bort all text som finns sedan tidigare_.
+At first I simply added the files for the second activity without changing them. After ensuring that they were both properly accounted for I added the startSecond function to MainActivity.java along with a corresponding button
+in activity_main.xml, making use of android:onClick="startSecond" in order to start the function when the button was clicked. Initially I added both Intent i = new Intent(MainActivity.this, SecondActivity.class); and
+Bundle extras = getIntent().getExtras(); in startSecond, but I later on saw my mistake and moved the bundle to SecondActivity.java, where it was intended to be. I also made sure to add a simple layout with a dark grey
+background in order to test if the button worked. After that I made sure to assign a piece of data to the intent, and replaced the dark grey layout in the second activity layout with a textview widget, which changed it's
+string to the string that accompanied the Intent in the main file.
 
 ## Följande grundsyn gäller dugga-svar:
 
@@ -16,24 +18,17 @@ _Du kan ta bort all text som finns sedan tidigare_.
 Programkod ska se ut som exemplet nedan. Koden måste vara korrekt indenterad då den blir lättare att läsa vilket gör det lättare att hitta syntaktiska fel.
 
 ```
-function errorCallback(error) {
-    switch(error.code) {
-        case error.PERMISSION_DENIED:
-            // Geolocation API stöds inte, gör något
-            break;
-        case error.POSITION_UNAVAILABLE:
-            // Misslyckat positionsanrop, gör något
-            break;
-        case error.UNKNOWN_ERROR:
-            // Okänt fel, gör något
-            break;
+    public void startSecond(View view) {
+        //Starts the second activity
+        Intent i = new Intent(MainActivity.this, SecondActivity.class);
+        i.putExtra("activityTxt", "The Second Activity has been activated"); //adds a piece of data with the activity
+        startActivity(i);
     }
-}
 ```
 
 Bilder läggs i samma mapp som markdown-filen.
 
-![](android.png)
+![](activatebutton.png)
 
 Läs gärna:
 
